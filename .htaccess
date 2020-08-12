@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^prueba$ prueba.blade.php [NC]
