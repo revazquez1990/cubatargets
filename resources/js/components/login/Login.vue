@@ -1,6 +1,8 @@
 <template>
   <v-container>
-      <v-form
+      <v-row>
+          <div class="col-md-6">
+              <v-form
     ref="form"
     v-model="valid"
     lazy-validation
@@ -53,6 +55,8 @@
       Reset Validation
     </v-btn>
   </v-form>
+          </div>
+      </v-row>
   </v-container>
 </template>
 

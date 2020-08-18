@@ -2008,18 +2008,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2033,6 +2021,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -37793,42 +37785,12 @@ var render = function() {
         {
           attrs: {
             absolute: "",
-            color: "#43a047",
-            dark: "",
-            "shrink-on-scroll": "",
-            prominent: "",
-            src: "https://picsum.photos/1920/1080?random",
-            "fade-img-on-scroll": "",
-            "scroll-target": "#scrolling-techniques-5",
-            "scroll-threshold": "500"
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "img",
-              fn: function(ref) {
-                var props = ref.props
-                return [
-                  _c(
-                    "v-img",
-                    _vm._b(
-                      {
-                        attrs: {
-                          gradient:
-                            "to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
-                        }
-                      },
-                      "v-img",
-                      props,
-                      false
-                    )
-                  )
-                ]
-              }
-            }
-          ])
+            color: "white",
+            "elevate-on-scroll": "",
+            "scroll-target": "#scrolling-techniques-7"
+          }
         },
         [
-          _vm._v(" "),
           _c("v-app-bar-nav-icon"),
           _vm._v(" "),
           _c("v-toolbar-title", [_vm._v("CubaTargets Travel Agency")]),
@@ -37843,16 +37805,9 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
-            "router-link",
-            { attrs: { to: "/login" } },
-            [
-              _c(
-                "v-btn",
-                { attrs: { icon: "" } },
-                [_c("v-icon", [_vm._v("mdi-heart")])],
-                1
-              )
-            ],
+            "v-btn",
+            { attrs: { icon: "" } },
+            [_c("v-icon", [_vm._v("mdi-heart")])],
             1
           ),
           _vm._v(" "),
@@ -37870,9 +37825,9 @@ var render = function() {
         "v-sheet",
         {
           staticClass: "overflow-y-auto",
-          attrs: { id: "scrolling-techniques-5", "max-height": "200" }
+          attrs: { id: "scrolling-techniques-7", "max-height": "600" }
         },
-        [_c("v-container", { staticStyle: { height: "1500px" } })],
+        [_c("v-container", { staticStyle: { height: "200px" } })],
         1
       )
     ],
@@ -37904,94 +37859,110 @@ var render = function() {
   return _c(
     "v-container",
     [
-      _c(
-        "v-form",
-        {
-          ref: "form",
-          attrs: { "lazy-validation": "" },
-          model: {
-            value: _vm.valid,
-            callback: function($$v) {
-              _vm.valid = $$v
-            },
-            expression: "valid"
-          }
-        },
-        [
-          _c("v-text-field", {
-            attrs: { rules: _vm.emailRules, label: "E-mail", required: "" },
-            model: {
-              value: _vm.email,
-              callback: function($$v) {
-                _vm.email = $$v
-              },
-              expression: "email"
-            }
-          }),
-          _vm._v(" "),
-          _c("v-text-field", {
-            attrs: {
-              counter: 30,
-              rules: _vm.passwordRules,
-              label: "Password",
-              required: ""
-            },
-            model: {
-              value: _vm.password,
-              callback: function($$v) {
-                _vm.password = $$v
-              },
-              expression: "password"
-            }
-          }),
-          _vm._v(" "),
-          _c("v-checkbox", {
-            attrs: {
-              rules: [
-                function(v) {
-                  return !!v || "You must agree to continue!"
+      _c("v-row", [
+        _c(
+          "div",
+          { staticClass: "col-md-6" },
+          [
+            _c(
+              "v-form",
+              {
+                ref: "form",
+                attrs: { "lazy-validation": "" },
+                model: {
+                  value: _vm.valid,
+                  callback: function($$v) {
+                    _vm.valid = $$v
+                  },
+                  expression: "valid"
                 }
-              ],
-              label: "Do you agree?",
-              required: ""
-            },
-            model: {
-              value: _vm.checkbox,
-              callback: function($$v) {
-                _vm.checkbox = $$v
               },
-              expression: "checkbox"
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            {
-              staticClass: "mr-4",
-              attrs: { disabled: !_vm.valid, color: "success" },
-              on: { click: _vm.validate }
-            },
-            [_vm._v("\n    Validate\n  ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            {
-              staticClass: "mr-4",
-              attrs: { color: "error" },
-              on: { click: _vm.reset }
-            },
-            [_vm._v("\n    Reset Form\n  ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            { attrs: { color: "warning" }, on: { click: _vm.resetValidation } },
-            [_vm._v("\n    Reset Validation\n  ")]
-          )
-        ],
-        1
-      )
+              [
+                _c("v-text-field", {
+                  attrs: {
+                    rules: _vm.emailRules,
+                    label: "E-mail",
+                    required: ""
+                  },
+                  model: {
+                    value: _vm.email,
+                    callback: function($$v) {
+                      _vm.email = $$v
+                    },
+                    expression: "email"
+                  }
+                }),
+                _vm._v(" "),
+                _c("v-text-field", {
+                  attrs: {
+                    counter: 30,
+                    rules: _vm.passwordRules,
+                    label: "Password",
+                    required: ""
+                  },
+                  model: {
+                    value: _vm.password,
+                    callback: function($$v) {
+                      _vm.password = $$v
+                    },
+                    expression: "password"
+                  }
+                }),
+                _vm._v(" "),
+                _c("v-checkbox", {
+                  attrs: {
+                    rules: [
+                      function(v) {
+                        return !!v || "You must agree to continue!"
+                      }
+                    ],
+                    label: "Do you agree?",
+                    required: ""
+                  },
+                  model: {
+                    value: _vm.checkbox,
+                    callback: function($$v) {
+                      _vm.checkbox = $$v
+                    },
+                    expression: "checkbox"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "v-btn",
+                  {
+                    staticClass: "mr-4",
+                    attrs: { disabled: !_vm.valid, color: "success" },
+                    on: { click: _vm.validate }
+                  },
+                  [_vm._v("\n    Validate\n  ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-btn",
+                  {
+                    staticClass: "mr-4",
+                    attrs: { color: "error" },
+                    on: { click: _vm.reset }
+                  },
+                  [_vm._v("\n    Reset Form\n  ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-btn",
+                  {
+                    attrs: { color: "warning" },
+                    on: { click: _vm.resetValidation }
+                  },
+                  [_vm._v("\n    Reset Validation\n  ")]
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      ])
     ],
     1
   )
