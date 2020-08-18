@@ -3,9 +3,12 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Reply extends Model
 {
+    protected $guarded = [];
+
     public function question()
     {
         return $this->belongsTo('App\Question');
@@ -18,6 +21,6 @@ class Reply extends Model
 
     public function like()
     {
-        return $this->hasMany('App\Like');
+        return $this->hasMany('App\Model\Like');
     }
 }
