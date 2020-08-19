@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Like;
 use Illuminate\Http\Request;
+use App\Model\Reply;
 
 class LikeController extends Controller
 {

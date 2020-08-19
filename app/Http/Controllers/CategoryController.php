@@ -6,6 +6,7 @@ use App\Http\Resources\CategoryResource;
 use App\Model\Category;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -30,6 +31,7 @@ class CategoryController extends Controller
         $category = new Category();
         $category->name = $request->name;
         $category->slug = Str::slug($request->name, '-');
+        $category->save();
         return response('Created', Response::HTTP_CREATED);
     }
 
@@ -56,7 +58,7 @@ class CategoryController extends Controller
         $category->update(
             [
                 'name' => $request->name,
-                'slug' =>str_slug($request->name)
+                'slug' =>Str::slug($request->name)
             ]
         );
         return response('Update', Response::HTTP_ACCEPTED);

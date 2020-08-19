@@ -30,7 +30,6 @@ class ReplyController extends Controller
     {
         $reply = $question->replies()->create($request->all());
         return response(['reply' => new ReplyResource($reply) ], Response::HTTP_CREATED);
-
     }
 
     /**

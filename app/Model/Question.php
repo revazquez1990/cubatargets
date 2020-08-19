@@ -20,12 +20,12 @@ class Question extends Model
 
     public function replies()
     {
-        return $this->hasMany('App\Reply');
+        return $this->hasMany('App\Model\Reply');
     }
 
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Model\Category');
     }
 
     public function getPathAttribute()
