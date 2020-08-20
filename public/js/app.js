@@ -2055,64 +2055,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      valid: true,
-      name: '',
-      nameRules: [function (v) {
-        return !!v || 'Name is required';
-      }, function (v) {
-        return v && v.length <= 10 || 'Name must be less than 10 characters';
-      }],
-      email: '',
-      emailRules: [function (v) {
-        return !!v || 'E-mail is required';
-      }, function (v) {
-        return /.+@.+\..+/.test(v) || 'E-mail must be valid';
-      }],
-      select: null,
-      items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
-      checkbox: false
+      form: {
+        email: null,
+        password: null
+      }
     };
   },
   methods: {
-    validate: function validate() {
-      this.$refs.form.validate();
-    },
-    reset: function reset() {
-      this.$refs.form.reset();
-    },
-    resetValidation: function resetValidation() {
-      this.$refs.form.resetValidation();
+    login: function login() {
+      axios.post('/api/auth/login', this.form).then(function (res) {
+        return console.log(res.data);
+      })["catch"](function (error) {
+        return console.log(error.response.data);
+      });
     }
   }
 });
@@ -37867,95 +37825,39 @@ var render = function() {
             _c(
               "v-form",
               {
-                ref: "form",
-                attrs: { "lazy-validation": "" },
-                model: {
-                  value: _vm.valid,
-                  callback: function($$v) {
-                    _vm.valid = $$v
-                  },
-                  expression: "valid"
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.login($event)
+                  }
                 }
               },
               [
                 _c("v-text-field", {
-                  attrs: {
-                    rules: _vm.emailRules,
-                    label: "E-mail",
-                    required: ""
-                  },
+                  attrs: { label: "E-mail", type: "email", required: "" },
                   model: {
-                    value: _vm.email,
+                    value: _vm.form.email,
                     callback: function($$v) {
-                      _vm.email = $$v
+                      _vm.$set(_vm.form, "email", $$v)
                     },
-                    expression: "email"
+                    expression: "form.email"
                   }
                 }),
                 _vm._v(" "),
                 _c("v-text-field", {
-                  attrs: {
-                    counter: 30,
-                    rules: _vm.passwordRules,
-                    label: "Password",
-                    required: ""
-                  },
+                  attrs: { label: "Password", type: "password", required: "" },
                   model: {
-                    value: _vm.password,
+                    value: _vm.form.password,
                     callback: function($$v) {
-                      _vm.password = $$v
+                      _vm.$set(_vm.form, "password", $$v)
                     },
-                    expression: "password"
+                    expression: "form.password"
                   }
                 }),
                 _vm._v(" "),
-                _c("v-checkbox", {
-                  attrs: {
-                    rules: [
-                      function(v) {
-                        return !!v || "You must agree to continue!"
-                      }
-                    ],
-                    label: "Do you agree?",
-                    required: ""
-                  },
-                  model: {
-                    value: _vm.checkbox,
-                    callback: function($$v) {
-                      _vm.checkbox = $$v
-                    },
-                    expression: "checkbox"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    staticClass: "mr-4",
-                    attrs: { disabled: !_vm.valid, color: "success" },
-                    on: { click: _vm.validate }
-                  },
-                  [_vm._v("\n    Validate\n  ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    staticClass: "mr-4",
-                    attrs: { color: "error" },
-                    on: { click: _vm.reset }
-                  },
-                  [_vm._v("\n    Reset Form\n  ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-btn",
-                  {
-                    attrs: { color: "warning" },
-                    on: { click: _vm.resetValidation }
-                  },
-                  [_vm._v("\n    Reset Validation\n  ")]
-                )
+                _c("v-btn", { attrs: { color: "green", type: "submit" } }, [
+                  _vm._v("\n              Login\n              ")
+                ])
               ],
               1
             )

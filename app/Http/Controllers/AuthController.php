@@ -9,15 +9,7 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('JWT', ['except' => ['login', 'signup']]);
-    }
+    
 
     /**
      * Get a JWT via given credentials.
