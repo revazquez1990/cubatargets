@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\User;
 use Illuminate\Http\Resources\Json\Resource;
 
+
 class QuestionController extends Controller
 {
     /**
@@ -39,9 +40,8 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //auth()->user()->question()->create($request->all());
-        Question::create($request->all());
-        return response('Created', Response::HTTP_CREATED);
+        $question = auth()->user()->question()->create($request->all());
+        return response(new QuestionResource($question), Response::HTTP_CREATED);
     }
 
     /**

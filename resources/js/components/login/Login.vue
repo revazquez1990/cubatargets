@@ -1,5 +1,6 @@
 <template>
-  <v-container>
+  <v-app>
+      <v-container>
       <v-row>
           <div class="col-md-6">
             <v-form @submit.prevent="login"
@@ -19,17 +20,26 @@
                 required
                 ></v-text-field>
 
-                <v-btn
-                color="green"
+                <v-btn 
+                class="ma-2" 
+                color="primary" 
                 type="submit"
+                dark
                 >
                 Login
+                    <v-icon dark right>mdi-checkbox-marked-circle</v-icon>
                 </v-btn>
+                
+
+                <router-link to="/signup"> 
+                    <v-btn Flat color="blue">Sign Up</v-btn>
+                </router-link>
                 
             </v-form>
           </div>
       </v-row>
   </v-container>
+  </v-app>
 </template>
 
 <script>
@@ -42,10 +52,14 @@ data() {
         }
       }
     },
-
+    created(){
+        if(User.loggedIn()){
+          this.$router.push({name: 'forum'})
+        }
+    },
     methods: {
       login(){
-          User.login(this.form);
+          User.login(this.form)
       }
     }
 }
