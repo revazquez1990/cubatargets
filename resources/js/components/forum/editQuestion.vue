@@ -34,10 +34,6 @@
 </template>
 
 <script>
-import {
-    mdiCancel,
-    mdiContentSaveEdit,
-  } from '@mdi/js'
 export default {
     props:['data'],
     data(){
@@ -49,7 +45,7 @@ export default {
             icons: {
                 mdiCancel,
                 mdiContentSaveEdit
-          },
+            },
         }
     },
     methods:{

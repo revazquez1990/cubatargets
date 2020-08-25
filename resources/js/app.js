@@ -23,6 +23,20 @@ import User from './Helpers/User'
 window.User = User
 
 window.EventBus = new Vue();
+import {
+    mdiCancel,
+    mdiContentSaveEdit,
+    mdiPencil,
+    mdiDelete,
+    mdiCheckOutline,
+    mdiHeart
+  } from '@mdi/js'
+window.mdiCancel = mdiCancel
+window.mdiContentSaveEdit = mdiContentSaveEdit
+window.mdiPencil = mdiPencil
+window.mdiDelete = mdiDelete
+window.mdiCheckOutline = mdiCheckOutline
+window.mdiHeart = mdiHeart
 
 /**
  * The following block of code may be used to automatically register your

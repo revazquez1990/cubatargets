@@ -50,9 +50,7 @@
 <script>
 import VueSimplemde from 'vue-simplemde';
 export default {
-    components: {
-        VueSimplemde,
-    },
+    components: {VueSimplemde},
     data(){
         return{
             form:{
