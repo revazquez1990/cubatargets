@@ -9,10 +9,10 @@
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>CubaTargets Travel Agency</v-toolbar-title>
+      <v-toolbar-title>Welcome to CubaTargets {{this.name_user}}</v-toolbar-title>
 
       <v-spacer></v-spacer>
-
+      <app-notification v-if="loggedIn"></app-notification>
       <div class="hidden-sm-and-down">
         
         <router-link
@@ -39,7 +39,9 @@
 </template> 
 
 <script>
+import AppNotification from './AppNotification'
 export default {
+    components:{AppNotification},
     data(){
         return{
             items: [
@@ -48,7 +50,9 @@ export default {
                 {title: 'Category', to: "/category", show: User.admin()},
                 {title: 'Login', to: "/login", show: !User.loggedIn()},
                 {title: 'Logout', to: "/logout", show: User.loggedIn()},
-            ]
+            ],
+            name_user: User.name(),
+            loggedIn: User.loggedIn()
         }
     },
     created(){

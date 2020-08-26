@@ -29,7 +29,8 @@ import {
     mdiPencil,
     mdiDelete,
     mdiCheckOutline,
-    mdiHeart
+    mdiHeart,
+    mdiBellPlus
   } from '@mdi/js'
 window.mdiCancel = mdiCancel
 window.mdiContentSaveEdit = mdiContentSaveEdit
@@ -37,6 +38,7 @@ window.mdiPencil = mdiPencil
 window.mdiDelete = mdiDelete
 window.mdiCheckOutline = mdiCheckOutline
 window.mdiHeart = mdiHeart
+window.mdiBellPlus = mdiBellPlus
 
 /**
  * The following block of code may be used to automatically register your
