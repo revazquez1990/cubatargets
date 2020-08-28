@@ -34,7 +34,21 @@ export default {
                     this.content.splice(index,1)
                     EventBus.$emit('DecrReplies', this.question.reply_count - 1)
                 })
-            })
+            });
+
+            Echo.private('App.User.' + User.id())
+                .notification((notification) => {
+                    this.content.unshift(notification.reply)
+            });
+
+            Echo.channel('deleteReplyChannel')
+            .listen('DeleteReplyEvent', (e) => {
+                for(let i = 0; i< this.content.length; i++){
+                    if(this.content[i].id == e.id){
+                        this.content.splice(i,1);
+                    }
+                }
+            });
         }
     }
 }
