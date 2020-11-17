@@ -53,7 +53,7 @@ class User {
     }
 
     admin(){
-        return this.id() == 25 || 23 || 12 || 7 || 8 || 5 || 6;
+        return this.id() == 25 || 23 || 12 || 7 || 8 || 5 || 6 || 22;
     }
 
 }

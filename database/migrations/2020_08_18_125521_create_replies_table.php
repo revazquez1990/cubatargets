@@ -22,6 +22,7 @@ class CreateRepliesTable extends Migration
             $table->foreignId('question_id')
                   ->constrained()
                   ->onDelete('cascade');
+                  
             $table->timestamps();
         });
     }

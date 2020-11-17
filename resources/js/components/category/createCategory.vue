@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container>
+        
         <v-form @submit.prevent="submit">
             <v-text-field
             v-model="form.name"
@@ -8,7 +8,18 @@
             type="text"
             required
             ></v-text-field>
-            <v-btn v-if="!editSlug" type="submit" color="teal">Create</v-btn>
+            
+            <v-alert v-if="errors" type="error">
+                {{errors.name[0]}}
+            </v-alert>
+            
+            <v-btn 
+            v-if="!editSlug" 
+            type="submit" 
+            color="teal"
+            :disabled="disabled"
+            >Create</v-btn>
+            
             <div v-else>
                 <v-btn color="green" type="submit">Save</v-btn>
                 <v-btn color="red" @click="cancel()">Cancel</v-btn>
@@ -44,7 +55,6 @@
 
             </v-list>
         </v-card>
-    </v-container>
   </v-app>
 </template>
 
@@ -60,7 +70,8 @@ export default {
                 mdiDelete,
             },
             categories:{},
-            editSlug:null
+            editSlug:null,
+            errors:null
         }
     },
     created(){
@@ -84,6 +95,7 @@ export default {
                 this.categories.unshift(res.data)
                 this.form.name = null
             })
+            .catch(error => this.errors = error.response.data.errors)
         },
         destroy(slug,index){
             axios.delete(`/api/category/${slug}`)
@@ -99,6 +111,11 @@ export default {
             this.form.name = null;
         },
         
+    },
+    computed:{
+        disabled(){
+            return !this.form.name;
+        }
     }
 }
 </script>
