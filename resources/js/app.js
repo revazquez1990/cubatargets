@@ -25,7 +25,15 @@ import Exception from './Helpers/Exception'
 window.Exception = Exception
 
 window.EventBus = new Vue();
-import { mdiCancel, mdiContentSaveEdit, mdiPencil, mdiDelete, mdiCheckOutline, mdiHeart, mdiBellPlus } from '@mdi/js'
+import {
+    mdiCancel,
+    mdiContentSaveEdit,
+    mdiPencil,
+    mdiDelete,
+    mdiCheckOutline,
+    mdiHeart,
+    mdiBellPlus
+  } from '@mdi/js'
 window.mdiCancel = mdiCancel
 window.mdiContentSaveEdit = mdiContentSaveEdit
 window.mdiPencil = mdiPencil

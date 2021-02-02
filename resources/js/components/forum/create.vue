@@ -35,7 +35,6 @@
                         <v-btn
                         color="green"
                         type="submit"
-                        :disabled="disabled"
                         >
                         Create
                         </v-btn>
@@ -74,11 +73,6 @@ export default {
             .catch(error => this.errors = error.response.data.error)
         }
     },
-    computed:{
-        disabled(){
-            return !(this.form.title && this.form.category_id && this.form.body);
-        }
-    }
 }
 </script>
 

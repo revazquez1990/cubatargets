@@ -1,8 +1,8 @@
 <template>
-    <v-app >
+    <v-app>
         <div class="text-center">
-            <v-menu dark color="indigo" offset-y>
-                <template v-slot:activator="{ on, attrs }" color="#3f51b5">
+            <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
                     <v-btn 
                     icon 
                     v-bind="attrs"
@@ -36,8 +36,7 @@ export default {
             },
             read : {},
             unread : {},
-            unreadCount : 0,
-            sound: "http://cubatargets.test.com/assets/pristine.mp3"
+            unreadCount : 0
         }
     },
     created(){
@@ -47,7 +46,6 @@ export default {
 
         Echo.private('App.User.' + User.id())
             .notification((notification) => {
-                this.playSound()
                 this.unread.unshift(notification)
                 this.unreadCount ++
             });
@@ -69,10 +67,6 @@ export default {
                 this.read.push(notification)
                 this.unreadCount --
             })
-        },
-        playSound(){
-            let alert = new Audio(this.sound);
-            alert.play();
         }
     },
     computed:{
@@ -84,5 +78,5 @@ export default {
 </script>
 
 <style>
-    
+
 </style>

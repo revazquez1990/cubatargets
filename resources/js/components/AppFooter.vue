@@ -1,5 +1,5 @@
 <template>
-  <!-- <v-card height="150">
+  <v-card height="150">
     <v-footer
       absolute
       class="font-weight-medium"
@@ -11,23 +11,11 @@
         {{ new Date().getFullYear() }} — <strong>CubaTargets</strong>
       </v-col>
     </v-footer>
-  </v-card> -->
-  <v-footer app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+  </v-card>
 </template>
 
 <script>
 export default {
-  props: {
-      source: String,
-    },
-    data: () => ({
-      drawer: null,
-    }),
-    created () {
-      this.$vuetify.theme.dark = true
-    },
 
 }
 </script>
